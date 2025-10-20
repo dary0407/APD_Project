@@ -1,0 +1,35 @@
+[main]
+Class="Function"
+Prototype="int main(int argc, char *argv[]);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:33:5"
+
+[LoadWaveCB]
+Class="Function"
+Prototype="int LoadWaveCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:62:17"
+
+[OnPanelCB]
+Class="Function"
+Prototype="int OnPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:141:17"
+
+[Filter_Mediere]
+Class="Function"
+Prototype="void Filter_Mediere(double *input, double *output, int npoints, int windowSize);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:160:6"
+
+[Filter_Ordin1]
+Class="Function"
+Prototype="void Filter_Ordin1(double *input, double *output, int npoints, double alpha);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:176:6"
+
+[OnApplyFilterCB]
+Class="Function"
+Prototype="int OnApplyFilterCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:185:17"
+
+[OnFilterCB]
+Class="Function"
+Prototype="int OnFilterCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:216:17"
+

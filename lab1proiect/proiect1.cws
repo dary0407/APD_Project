@@ -1,6 +1,6 @@
 [Workspace Header]
 Version = 2000
-Pathname = "/c/Users/Daria/OneDrive/Desktop/apd_proiect/lab1proiect/proiect1.cws"
+Pathname = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/proiect1.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2020"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2020"
@@ -14,9 +14,9 @@ Active Project = 1
 Project 0001 = "proiect1.prj"
 Drag Bar Left = 160
 Window Top = 31
-Window Left = -9
-Window Bottom = 824
-Window Right = 779
+Window Left = 26
+Window Bottom = 533
+Window Right = 816
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -30,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 2
+Number of Opened Files = 3
 Window Confinement Region Enabled = True
 MainColumnWidth = 143
 FileDateColumnWidth = 70
@@ -46,29 +46,40 @@ Batch Build Release = False
 Batch Build Debug = False
 
 [File 0001]
-Path = "/c/Users/Daria/OneDrive/Desktop/apd_proiect/lab1proiect/Proiect1.uir"
+Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.uir"
 File Type = "User Interface Resource"
-Disk Date = 3842851691
-In Projects = ""
+Disk Date = 3843830943
+In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Height = 401
 Window Width = 602
-Window Z-Order = 2
-
-[File 0002]
-Path = "/c/Users/Daria/OneDrive/Desktop/apd_proiect/lab1proiect/main.c"
-File Type = "CSource"
-Disk Date = 3842851503
-In Projects = "1,"
-Source Window State = "1,23,23,23,12,12,12,0,0,0,0,0,0,0,0,0,0,0,23,12,401,602,1,0,"
-Window Top = 64
-Window Left = 26
 Window Z-Order = 1
 
+[File 0002]
+Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.c"
+File Type = "CSource"
+Disk Date = 3843830890
+In Projects = "1,"
+Source Window State = "1,207,207,207,15,15,15,0,0,0,0,0,0,0,0,0,169,0,207,15,401,959,1,0,"
+Window Top = 188
+Window Left = 90
+Window Z-Order = 2
+
+[File 0003]
+Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.h"
+File Type = "Include"
+Disk Date = 3843828837
+In Projects = "1,"
+Source Window State = "1,37,37,37,0,0,0,0,0,0,0,0,0,0,0,0,0,0,37,0,401,1064,1,0,"
+Window Top = 219
+Window Left = 106
+Window Z-Order = 3
+
 [Tab Order]
-Tab 0001 = "/c/Users/Daria/OneDrive/Desktop/apd_proiect/lab1proiect/Proiect1.uir"
-Tab 0002 = "/c/Users/Daria/OneDrive/Desktop/apd_proiect/lab1proiect/main.c"
+Tab 0001 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.uir"
+Tab 0002 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.c"
+Tab 0003 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
