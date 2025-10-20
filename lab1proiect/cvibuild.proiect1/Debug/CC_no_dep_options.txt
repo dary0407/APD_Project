@@ -1,0 +1,1 @@
+-force-include-file "main.c";"c:\Users\Daria\OneDrive\Desktop\apd_proiect\lab1proiect\main.c" 
