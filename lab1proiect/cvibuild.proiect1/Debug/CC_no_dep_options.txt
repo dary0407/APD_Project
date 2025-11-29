@@ -1,1 +1,1 @@
--force-include-file "Proiect1.c";"c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c" -force-include-file "Proiect1.h";"c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.h" 
+-force-include-file "Proiect1.c";"c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c" -force-include-file "Proiect1.h";"c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.h" 

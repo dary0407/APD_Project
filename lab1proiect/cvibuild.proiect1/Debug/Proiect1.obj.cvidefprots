@@ -1,35 +1,95 @@
 [main]
 Class="Function"
 Prototype="int main(int argc, char *argv[]);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:33:5"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:49:5"
+
+[CompareDouble]
+Class="Function"
+Prototype="int CompareDouble(const void *a, const void *b);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:78:5"
+
+[ComputeMedian]
+Class="Function"
+Prototype="double ComputeMedian(double *data, int npoints);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:87:8"
+
+[ComputeSkewKurt]
+Class="Function"
+Prototype="void ComputeSkewKurt(double *x, int n, double *skew, double *kurt);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:111:6"
+
+[UpdateStats]
+Class="Function"
+Prototype="void UpdateStats(int panel, double *segment, int segmentLength);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:137:6"
 
 [LoadWaveCB]
 Class="Function"
 Prototype="int LoadWaveCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:62:17"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:175:17"
 
 [OnPanelCB]
 Class="Function"
 Prototype="int OnPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:141:17"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:252:17"
 
 [Filter_Mediere]
 Class="Function"
 Prototype="void Filter_Mediere(double *input, double *output, int npoints, int windowSize);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:160:6"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:272:6"
 
 [Filter_Ordin1]
 Class="Function"
 Prototype="void Filter_Ordin1(double *input, double *output, int npoints, double alpha);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:176:6"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:288:6"
+
+[ComputeDerivative]
+Class="Function"
+Prototype="void ComputeDerivative(double *input, double *output, int npoints, double dt);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:297:6"
 
 [OnApplyFilterCB]
 Class="Function"
 Prototype="int OnApplyFilterCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:185:17"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:309:17"
 
 [OnFilterCB]
 Class="Function"
 Prototype="int OnFilterCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Proiect1.c:216:17"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:398:17"
+
+[OnDimensionChangeCB]
+Class="Function"
+Prototype="int OnDimensionChangeCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:423:17"
+
+[OnAlphaChangeCB]
+Class="Function"
+Prototype="int OnAlphaChangeCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:431:17"
+
+[PrevBtnCB]
+Class="Function"
+Prototype="int PrevBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:439:17"
+
+[NextBtnCB]
+Class="Function"
+Prototype="int NextBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:506:17"
+
+[OnResetBtnCB]
+Class="Function"
+Prototype="int OnResetBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:580:17"
+
+[OnDerivativeToggleCB]
+Class="Function"
+Prototype="int OnDerivativeToggleCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:620:17"
+
+[OnEnvelopeToggleCB]
+Class="Function"
+Prototype="int OnEnvelopeToggleCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Proiect1.c:637:17"
 

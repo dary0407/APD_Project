@@ -1,9 +1,14 @@
 import numpy as np
 
 from scipy.io import wavfile
-samplerate, data = wavfile.read(r"C:\Users\Daria\OneDrive\Desktop\apd_proiect\lab1proiect\waw\23.wav")
 
-wavFileInfo = open("wafeInfo.txt", "a")
+
+
+samplerate, data = wavfile.read(r"C:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\waw\23.wav")
+
+
+
+wavFileInfo = open("waveInfo.txt", "a")
 wavFileInfo.write(str(samplerate)+'\n')
 wavFileInfo.write(str(data.size)+'\n')
 wavFileInfo.close()
@@ -13,3 +18,5 @@ print(data.size)
 print (data)
 
 np.savetxt("waveData.txt", data, fmt="%2.0f")
+
+
