@@ -1,0 +1,5 @@
+[OnFrequencyPanelCB]
+Class="Function"
+Prototype="int OnFrequencyPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:40:17"
+

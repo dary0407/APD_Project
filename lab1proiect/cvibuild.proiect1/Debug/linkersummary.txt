@@ -1,3 +1,4 @@
+Frequency.obj
 Proiect1.obj
 cvi.lib
 advanlys.lib

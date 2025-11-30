@@ -40,6 +40,7 @@ int isFullView = 1;  // 1 = modul initial complet, 0 = modul pe secunde
 
 					
 static int mainPanel = 0;
+static int frqPanel = 0;
 int showDerivative = 0;   // 0 = normal, 1 = derivatã
 int showEnvelope = 0;  // 0 = normal, 1 = afiseazã anvelopa
 
@@ -57,6 +58,8 @@ int main (int argc, char *argv[])
 	if (InitCVIRTE (0, argv, 0) == 0)
 		return -1;	
 	if ((mainPanel = LoadPanel (0, "Proiect1.uir", MAIN_PANEL)) < 0)
+		return -1;
+	if ((frqPanel = LoadPanel (0, "Proiect1.uir", FRQ_PANEL)) < 0)
 		return -1;
 	DisplayPanel (mainPanel);
 	while(!quitFlag)
@@ -490,7 +493,7 @@ int CVICALLBACK PrevBtnCB (int panel, int control, int event,
 
 			r.height = bottom - r.top;
 			r.width  = right  - r.left;
-			sprintf(fileName, "C:\\Users\\Daria\\OneDrive\\Desktop\\An3\\apd_proiect\\lab1proiect\\output\\grafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
+			sprintf(fileName, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiectgrafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
 			GetPanelDisplayBitmap(panel, 1, r, &bitMapID);
 			SaveBitmapToJPEGFile(bitMapID, fileName, JPEG_PROGRESSIVE, 100);
 			DiscardBitmap(bitMapID);
@@ -558,7 +561,7 @@ int CVICALLBACK NextBtnCB (int panel, int control, int event,
 
 			r.height = bottom - r.top;
 			r.width  = right  - r.left;
-			sprintf(fileName, "C:\\Users\\Daria\\OneDrive\\Desktop\\An3\\apd_proiect\\lab1proiect\\output\\grafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
+			sprintf(fileName, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiectgrafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
 			GetPanelDisplayBitmap(panel, 1, r, &bitMapID);
 			SaveBitmapToJPEGFile(bitMapID, fileName, JPEG_PROGRESSIVE, 100);
 			DiscardBitmap(bitMapID);
@@ -693,3 +696,26 @@ int CVICALLBACK OnEnvelopeToggleCB (int panel, int control, int event,
 }
 
 
+
+int CVICALLBACK OnSwitchPanelCB (int panel, int control, int event,
+								 void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			if(panel == mainPanel)
+			{
+				SetCtrlVal(frqPanel, FRQ_PANEL_IDC_SWITCH_PANEL, 1);
+				DisplayPanel(frqPanel);
+				HidePanel(panel);
+			}
+			else
+			{
+				SetCtrlVal(mainPanel, FRQ_PANEL_IDC_SWITCH_PANEL, 0);
+				DisplayPanel(mainPanel);
+				HidePanel(panel);
+			}
+			break;
+	}
+	return 0;
+}
