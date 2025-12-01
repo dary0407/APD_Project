@@ -48,12 +48,12 @@ Batch Build Debug = False
 [File 0001]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.c"
 File Type = "CSource"
-Disk Date = 3847277350
+Disk Date = 3847463349
 In Projects = "1,"
-Source Window State = "1,713,713,713,38,64,38,0,3,0,0,0,0,0,0,0,672,0,713,64,401,602,1,0,"
+Source Window State = "1,563,563,563,176,176,176,0,0,0,0,0,0,0,0,0,538,0,563,176,401,602,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 2
+Window Z-Order = 1
 
 [File 0002]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.uir"
@@ -81,10 +81,10 @@ Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.c"
 File Type = "CSource"
 Disk Date = 3847277428
 In Projects = "1,"
-Source Window State = "1,55,55,55,1,1,1,0,0,0,0,0,0,0,0,0,7,0,55,1,401,1064,1,0,"
+Source Window State = "1,55,55,55,1,1,1,0,0,0,0,0,0,0,0,0,0,0,55,1,401,1064,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 1
+Window Z-Order = 2
 
 [File 0005]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.h"

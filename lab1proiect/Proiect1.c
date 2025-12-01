@@ -493,7 +493,7 @@ int CVICALLBACK PrevBtnCB (int panel, int control, int event,
 
 			r.height = bottom - r.top;
 			r.width  = right  - r.left;
-			sprintf(fileName, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiectgrafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
+			sprintf(fileName, "C:\\Users\\Daria\\OneDrive\\Desktop\\An3\\apd_proiect\\lab1proiect\\output\\grafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
 			GetPanelDisplayBitmap(panel, 1, r, &bitMapID);
 			SaveBitmapToJPEGFile(bitMapID, fileName, JPEG_PROGRESSIVE, 100);
 			DiscardBitmap(bitMapID);
@@ -561,7 +561,7 @@ int CVICALLBACK NextBtnCB (int panel, int control, int event,
 
 			r.height = bottom - r.top;
 			r.width  = right  - r.left;
-			sprintf(fileName, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiectgrafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
+			sprintf(fileName, "C:\\Users\\Daria\\OneDrive\\Desktop\\An3\\apd_proiect\\lab1proiect\\output\\grafic_%d_%d_%ld.jpg", currentSecond, currentSecond + 1, time(NULL));
 			GetPanelDisplayBitmap(panel, 1, r, &bitMapID);
 			SaveBitmapToJPEGFile(bitMapID, fileName, JPEG_PROGRESSIVE, 100);
 			DiscardBitmap(bitMapID);
