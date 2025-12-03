@@ -15,6 +15,14 @@
 
 #define  FRQ_PANEL                        1       /* callback function: OnFrequencyPanelCB */
 #define  FRQ_PANEL_IDC_SWITCH_PANEL       2       /* control type: binary, callback function: OnSwitchPanelCB */
+#define  FRQ_PANEL_RING_2                 3       /* control type: ring, callback function: (none) */
+#define  FRQ_PANEL_RING_3                 4       /* control type: ring, callback function: (none) */
+#define  FRQ_PANEL_NUMERIC                5       /* control type: numeric, callback function: (none) */
+#define  FRQ_PANEL_NUMERIC_2              6       /* control type: numeric, callback function: (none) */
+#define  FRQ_PANEL_COMMANDBUTTON          7       /* control type: command, callback function: (none) */
+#define  FRQ_PANEL_NUMERIC_3              8       /* control type: numeric, callback function: (none) */
+#define  FRQ_PANEL_COMMANDBUTTON_2        9       /* control type: command, callback function: (none) */
+#define  FRQ_PANEL_FREQ_GRAPH             10      /* control type: strip, callback function: (none) */
 
 #define  MAIN_PANEL                       2       /* callback function: OnPanelCB */
 #define  MAIN_PANEL_IDC_SWITCH_PANEL      2       /* control type: binary, callback function: OnSwitchPanelCB */

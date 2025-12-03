@@ -53,28 +53,28 @@ In Projects = "1,"
 Source Window State = "1,563,563,563,176,176,176,0,0,0,0,0,0,0,0,0,538,0,563,176,401,602,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 1
+Window Z-Order = 3
 
 [File 0002]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.uir"
 File Type = "User Interface Resource"
-Disk Date = 3847276876
+Disk Date = 3847637219
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Height = 401
 Window Width = 602
-Window Z-Order = 4
+Window Z-Order = 1
 
 [File 0003]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.h"
 File Type = "Include"
-Disk Date = 3847276876
+Disk Date = 3847637219
 In Projects = "1,"
-Source Window State = "1,19,19,19,9,29,9,0,3,0,0,0,0,0,0,0,3,0,19,29,401,602,1,0,"
+Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,401,959,1,0,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 5
+Window Z-Order = 2
 
 [File 0004]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.c"
@@ -84,7 +84,7 @@ In Projects = "1,"
 Source Window State = "1,55,55,55,1,1,1,0,0,0,0,0,0,0,0,0,0,0,55,1,401,1064,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 2
+Window Z-Order = 4
 
 [File 0005]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.h"
@@ -94,14 +94,14 @@ In Projects = "1,"
 Source Window State = "1,40,40,40,27,27,27,0,0,0,0,0,0,0,0,0,0,0,40,27,401,1064,1,0,"
 Window Top = 33
 Window Left = 10
-Window Z-Order = 3
+Window Z-Order = 5
 
 [Tab Order]
 Tab 0001 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.uir"
 Tab 0002 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.c"
-Tab 0003 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.h"
-Tab 0004 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.c"
-Tab 0005 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.h"
+Tab 0003 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.c"
+Tab 0004 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.h"
+Tab 0005 = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
