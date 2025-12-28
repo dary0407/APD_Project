@@ -28,7 +28,9 @@
 
 //==============================================================================
 // External variables
-
+extern double sampleRate;
+extern int npoints;
+extern double *waveData;
 //==============================================================================
 // Global functions
 
