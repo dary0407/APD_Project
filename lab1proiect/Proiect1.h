@@ -19,16 +19,13 @@
 #define  FRQ_PANEL_RING_3                 4       /* control type: ring, callback function: (none) */
 #define  FRQ_PANEL_FREQ_PEAK              5       /* control type: numeric, callback function: (none) */
 #define  FRQ_PANEL_POWER_PEAK             6       /* control type: numeric, callback function: (none) */
-#define  FRQ_PANEL_COMMANDBUTTON          7       /* control type: command, callback function: (none) */
-#define  FRQ_PANEL_NPOINTS                8       /* control type: numeric, callback function: (none) */
-#define  FRQ_PANEL_COMMANDBUTTON_2        9       /* control type: command, callback function: OnApply */
-#define  FRQ_PANEL_COMMANDBUTTON_4        10      /* control type: command, callback function: OnNextCB */
-#define  FRQ_PANEL_FREQ_GRAPH             11      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_COMMANDBUTTON_5        12      /* control type: command, callback function: OnPrevCB */
-#define  FRQ_PANEL_GRAPH_INIT             13      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_GRAPH_FILTER           14      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_GRAPH_FREQ2            15      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_TIMER                  16      /* control type: timer, callback function: OnTimerCB */
+#define  FRQ_PANEL_NPOINTS                7       /* control type: numeric, callback function: (none) */
+#define  FRQ_PANEL_COMMANDBUTTON_2        8       /* control type: command, callback function: OnApply */
+#define  FRQ_PANEL_FREQ_GRAPH             9       /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_GRAPH_INIT             10      /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_GRAPH_FILTER           11      /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_GRAPH_FREQ2            12      /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_TIMER                  13      /* control type: timer, callback function: OnTimerCB */
 
 #define  MAIN_PANEL                       2       /* callback function: OnPanelCB */
 #define  MAIN_PANEL_IDC_SWITCH_PANEL      2       /* control type: binary, callback function: OnSwitchPanelCB */
@@ -81,9 +78,7 @@ int  CVICALLBACK OnDimensionChangeCB(int panel, int control, int event, void *ca
 int  CVICALLBACK OnEnvelopeToggleCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnFilterCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnFrequencyPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK OnNextCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK OnPrevCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnResetBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnSwitchPanelCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnTimerCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);

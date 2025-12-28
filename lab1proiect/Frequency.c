@@ -17,6 +17,7 @@
 #include "Frequency.h"
 #include "Proiect1.h"
 #include <analysis.h>
+#include <utility.h>
 
 
 //==============================================================================
@@ -53,19 +54,23 @@ int CVICALLBACK OnFrequencyPanelCB (int panel, int event, void *callbackData,
                       VAL_THIN_LINE, VAL_EMPTY_SQUARE, VAL_SOLID, 1, VAL_RED);
             }
 
+			SetCtrlAttribute(panel, FRQ_PANEL_TIMER, ATTR_ENABLED, 1);
 			break;
 		case EVENT_LOST_FOCUS:
 
+			SetCtrlAttribute(panel, FRQ_PANEL_TIMER, ATTR_ENABLED, 0);
 			break;
 		case EVENT_CLOSE:
-			QuitUserInterface(0);
+			QueueUserEvent(MYEVENT_CLOSE, panel, FRQ_PANEL);
 			break;
 	}
 	return 0;
 }
 
-int CVICALLBACK OnNextCB (int panel, int control, int event, void *callbackData, int eventData1, int eventData2)
+int CVICALLBACK OnTimerCB (int panel, int control, int event,
+						   void *callbackData, int eventData1, int eventData2)
 {
+	
 	int N_points;
 	int windowType;
 	double *xArray = NULL;
@@ -75,11 +80,14 @@ int CVICALLBACK OnNextCB (int panel, int control, int event, void *callbackData,
 	double dt, df;
 	double frequencyPeak, powerPeak;
 	char unit[32] = "";
-	
+	int imghandle;
+    char filename[256];
+    Rect graphRect;
+
 	switch (event)
-	{
-		case EVENT_COMMIT:
-			GetCtrlVal(panel, FRQ_PANEL_NPOINTS, &N_points);
+    {
+        case EVENT_TIMER_TICK:
+            GetCtrlVal(panel, FRQ_PANEL_NPOINTS, &N_points);
 			GetCtrlVal(panel, FRQ_PANEL_WINDOW, &windowType);
 
 	
@@ -128,38 +136,23 @@ int CVICALLBACK OnNextCB (int panel, int control, int event, void *callbackData,
 				if (autoSpectrum) free(autoSpectrum);
 				if (convertedSpectrum) free(convertedSpectrum);
 				
+			GetCtrlVal(panel, FRQ_PANEL_NPOINTS, &N_points);
+            
+            GetCtrlBoundingRect(panel, FRQ_PANEL_FREQ_GRAPH, 
+                               &graphRect.top, &graphRect.left, 
+                               &graphRect.height, &graphRect.width);
+            
+            // EXACT din enunt: GetCtrlDisplayBitmap(…,….,1,&imghandle);
+            GetCtrlDisplayBitmap(panel, FRQ_PANEL_FREQ_GRAPH, 1, &imghandle);
+            
+            sprintf(filename, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\output\\spectru_N%d_%ld.jpg", N_points, time(NULL));
+            
+            // EXACT din enunt: SaveBitmapToJPEGFile(imghandle,…,….,…);
+            SaveBitmapToJPEGFile(imghandle, filename, JPEG_PROGRESSIVE, 100);
+            
+            DiscardBitmap(imghandle);
+				
 			break;
-	}
-	return 0;
-}
-
-int CVICALLBACK OnPrevCB (int panel, int control, int event,
-						  void *callbackData, int eventData1, int eventData2)
-{
-    int N_points;
-    switch (event)
-    {
-        case EVENT_COMMIT:
-            GetCtrlVal(panel, FRQ_PANEL_NPOINTS, &N_points);
-			
-            g_frqOffset -= N_points;
-
-            if (g_frqOffset < 0) g_frqOffset = 0;
-       
-            OnNextCB(panel, FRQ_PANEL_COMMANDBUTTON_4 , EVENT_COMMIT, 0, 0, 0);
-            break;
-    }
-    return 0;
-}
-
-int CVICALLBACK OnTimerCB (int panel, int control, int event,
-						   void *callbackData, int eventData1, int eventData2)
-{
-	switch (event)
-    {
-        case EVENT_TIMER_TICK:
-            OnNextCB(panel, FRQ_PANEL_COMMANDBUTTON_4, EVENT_COMMIT, 0, 0, 0);
-            break;
     }
     return 0;
 }
@@ -175,3 +168,7 @@ int CVICALLBACK OnApply (int panel, int control, int event,
 	}
 	return 0;
 }
+
+
+
+

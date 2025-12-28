@@ -1,25 +1,15 @@
 [OnFrequencyPanelCB]
 Class="Function"
 Prototype="int OnFrequencyPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Frequency.c:41:17"
-
-[OnNextCB]
-Class="Function"
-Prototype="int OnNextCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Frequency.c:67:17"
-
-[OnPrevCB]
-Class="Function"
-Prototype="int OnPrevCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Frequency.c:136:17"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:42:17"
 
 [OnTimerCB]
 Class="Function"
 Prototype="int OnTimerCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Frequency.c:155:17"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:70:17"
 
 [OnApply]
 Class="Function"
 Prototype="int OnApply(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\Daria\OneDrive\Desktop\An3\apd_proiect\lab1proiect\Frequency.c:167:17"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:160:17"
 
