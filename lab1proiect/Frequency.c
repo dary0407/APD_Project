@@ -18,6 +18,8 @@
 #include "Proiect1.h"
 #include <analysis.h>
 #include <utility.h>
+#include <advanlys.h>
+
 
 
 //==============================================================================
@@ -68,106 +70,126 @@ int CVICALLBACK OnFrequencyPanelCB (int panel, int event, void *callbackData,
 }
 
 int CVICALLBACK OnTimerCB (int panel, int control, int event,
-						   void *callbackData, int eventData1, int eventData2)
+                           void *callbackData, int eventData1, int eventData2)
 {
-	
-	int N_points;
-	int windowType;
-	double *xArray = NULL;
-	double *autoSpectrum = NULL;
-	double *convertedSpectrum = NULL;
-	WindowConst wind;
-	double dt, df;
-	double frequencyPeak, powerPeak;
-	char unit[32] = "";
-	int imghandle;
-    char filename[256];
-    Rect graphRect;
+    int N_points, windowType, filterType;
+    double *xArray = NULL, *yFiltered = NULL;
+    double *autoSpectrum = NULL, *convertedSpectrum = NULL;
+    double *autoSpecFilt = NULL, *convSpecFilt = NULL;
+    
+    // Coeficien?i ?i variabile de stare pentru filtrele "Old-style"
+    double a[1024] = {0}, b[1024] = {0};
+    static double x1_st[1024] = {0}, y1_st[1024] = {0};
+    int na = 1024, nb = 1024;
+    
+    WindowConst wind, windFilt;
+    double dt, df, dfFilt;
+    double frequencyPeak, powerPeak;
+    char unit[32] = "";
+    int imghandle;
+    char filename[512]; // Dimensiune mai mare pentru c?i lungi
 
-	switch (event)
+    switch (event)
     {
         case EVENT_TIMER_TICK:
+            // 1. Preluare parametri din interfa??
             GetCtrlVal(panel, FRQ_PANEL_NPOINTS, &N_points);
-			GetCtrlVal(panel, FRQ_PANEL_WINDOW, &windowType);
+            GetCtrlVal(panel, FRQ_PANEL_WINDOW, &windowType);
+            GetCtrlVal(panel, FRQ_PANEL_RING_3, &filterType);
 
-	
-			if (waveData == NULL || N_points <= 0) {
-                //MessagePopup("Eroare", "Datele nu sunt incarcate sau N_points este invalid.");
-                return 0;
+            if (waveData == NULL || N_points <= 0) return 0;
+            
+            // Verificare limit? buffer
+            if (g_frqOffset + N_points > npoints) {
+                MessagePopup("Info", "Resetare la începutul datelor.");
+                g_frqOffset = 0;
+                return 0; 
             }
-			
-			if (g_frqOffset + N_points > npoints) {
-				MessagePopup("Info", "Am ajuns la sfarsitul datelor. Resetare la inceput.");
-				g_frqOffset = 0;
-				return 0; 
-			}
 
-			xArray = calloc(N_points, sizeof(double));
-			autoSpectrum = calloc(N_points / 2, sizeof(double));
-			convertedSpectrum = calloc(N_points / 2, sizeof(double));
+            // 2. Alocare memorie
+            xArray = calloc(N_points, sizeof(double));
+            yFiltered = calloc(N_points, sizeof(double));
+            autoSpectrum = calloc(N_points / 2, sizeof(double));
+            convertedSpectrum = calloc(N_points / 2, sizeof(double));
+            autoSpecFilt = calloc(N_points / 2, sizeof(double));
+            convSpecFilt = calloc(N_points / 2, sizeof(double));
 
-			if (!xArray || !autoSpectrum || !convertedSpectrum) {
-			    MessagePopup("Eroare", "Alocare memorie esuata.");
-			    goto Cleanup; 
-			}
-			
-			memcpy(xArray, waveData + g_frqOffset, N_points * sizeof(double));
-			
-			dt = 1.0 / sampleRate;
-			
-			ScaledWindowEx(xArray, N_points, windowType, 0.0, &wind);
-
-			AutoPowerSpectrum(xArray, N_points, dt, autoSpectrum, &df);
-			
-			PowerFrequencyEstimate(autoSpectrum, N_points/2, 0.0, wind, df, 0, &frequencyPeak, &powerPeak);
-			
-			SetCtrlVal(panel, FRQ_PANEL_FREQ_PEAK, frequencyPeak);
-			SetCtrlVal(panel, FRQ_PANEL_POWER_PEAK, powerPeak);  
-
-			SpectrumUnitConversion(autoSpectrum, N_points/2, 0, SCALING_MODE_LINEAR, DISPLAY_UNIT_VRMS, df, wind, convertedSpectrum, unit);
-			
-			DeleteGraphPlot(panel, FRQ_PANEL_FREQ_GRAPH, -1, VAL_IMMEDIATE_DRAW);
-			PlotY(panel, FRQ_PANEL_FREQ_GRAPH, convertedSpectrum, N_points / 2, VAL_DOUBLE, VAL_THIN_LINE, VAL_EMPTY_SQUARE, VAL_SOLID, 1, VAL_RED);
-			
-            g_frqOffset += N_points;
+            if (!xArray || !yFiltered || !autoSpectrum || !autoSpecFilt) goto Cleanup;
             
-			Cleanup:
-				if (xArray) free(xArray);
-				if (autoSpectrum) free(autoSpectrum);
-				if (convertedSpectrum) free(convertedSpectrum);
-				
-			GetCtrlVal(panel, FRQ_PANEL_NPOINTS, &N_points);
+            // Copiere date curente
+            memcpy(xArray, waveData + g_frqOffset, N_points * sizeof(double));
+            dt = 1.0 / sampleRate;
+
+            // --- 3. PROCESARE SPECTRU INI?IAL ---
+            ScaledWindowEx(xArray, N_points, windowType, 0.0, &wind);
+            AutoPowerSpectrum(xArray, N_points, dt, autoSpectrum, &df);
+            SpectrumUnitConversion(autoSpectrum, N_points/2, 0, SCALING_MODE_LINEAR, DISPLAY_UNIT_VRMS, df, wind, convertedSpectrum, unit);
+
+            // --- 4. FILTRARE IIR (Old-style) ---
+            // Folosim frecven?e sigure pentru a evita erorile de memorie
+            if (filterType == 0) {
+                InvCh_Coef(0, 2, sampleRate, 1000.0, 4000.0, 40.0, a, na, b, nb);
+            } else {
+                Elp_Coef(0, 2, sampleRate, 1000.0, 4000.0, 0.5, 40.0, a, na, b, nb);
+            }
             
-            GetCtrlBoundingRect(panel, FRQ_PANEL_FREQ_GRAPH, 
-                               &graphRect.top, &graphRect.left, 
-                               &graphRect.height, &graphRect.width);
+            // Aplic?m filtrarea pe xArray
+            IIRFiltering(xArray, (ssize_t)N_points, a, y1_st, na, b, x1_st, nb, yFiltered);
+
+            // --- 5. PROCESARE SPECTRU FILTRAT ---
+            ScaledWindowEx(yFiltered, N_points, windowType, 0.0, &windFilt);
+            AutoPowerSpectrum(yFiltered, N_points, dt, autoSpecFilt, &dfFilt);
+            SpectrumUnitConversion(autoSpecFilt, N_points/2, 0, SCALING_MODE_LINEAR, DISPLAY_UNIT_VRMS, dfFilt, windFilt, convSpecFilt, unit);
             
-            // EXACT din enunt: GetCtrlDisplayBitmap(…,….,1,&imghandle);
+            // Estimare Peak pe spectrul filtrat
+            PowerFrequencyEstimate(autoSpecFilt, N_points/2, 0.0, windFilt, dfFilt, 0, &frequencyPeak, &powerPeak);
+            SetCtrlVal(panel, FRQ_PANEL_FREQ_PEAK, frequencyPeak);
+            SetCtrlVal(panel, FRQ_PANEL_POWER_PEAK, powerPeak);
+
+            // --- 6. ACTUALIZARE GRAFICE ---
+            DeleteGraphPlot(panel, FRQ_PANEL_FREQ_GRAPH, -1, VAL_IMMEDIATE_DRAW);
+            PlotY(panel, FRQ_PANEL_FREQ_GRAPH, convertedSpectrum, N_points / 2, VAL_DOUBLE, VAL_THIN_LINE, VAL_EMPTY_SQUARE, VAL_SOLID, 1, VAL_RED);
+            
+            DeleteGraphPlot(panel, FRQ_PANEL_GRAPH_FILTER, -1, VAL_IMMEDIATE_DRAW);
+            PlotY(panel, FRQ_PANEL_GRAPH_FILTER, yFiltered, N_points, VAL_DOUBLE, VAL_THIN_LINE, VAL_EMPTY_SQUARE, VAL_SOLID, 1, VAL_RED);
+            
+            DeleteGraphPlot(panel, FRQ_PANEL_GRAPH_FREQ2, -1, VAL_IMMEDIATE_DRAW);
+            PlotY(panel, FRQ_PANEL_GRAPH_FREQ2, convSpecFilt, N_points / 2, VAL_DOUBLE, VAL_THIN_LINE, VAL_EMPTY_SQUARE, VAL_SOLID, 1, VAL_RED);
+
+            // --- 7. SALVARE IMAGINI (Calea ta specific?) ---
+            long timestamp = (long)time(NULL);
+
+            // Salvare Spectru Ini?ial
             GetCtrlDisplayBitmap(panel, FRQ_PANEL_FREQ_GRAPH, 1, &imghandle);
-            
-            sprintf(filename, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\output\\spectru_N%d_%ld.jpg", N_points, time(NULL));
-            
-            // EXACT din enunt: SaveBitmapToJPEGFile(imghandle,…,….,…);
+            sprintf(filename, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\output\\spectru_init_N%d_%ld.jpg", N_points, timestamp);
             SaveBitmapToJPEGFile(imghandle, filename, JPEG_PROGRESSIVE, 100);
-            
             DiscardBitmap(imghandle);
-				
-			break;
+
+            // Salvare Spectru Filtrat
+            GetCtrlDisplayBitmap(panel, FRQ_PANEL_GRAPH_FREQ2, 1, &imghandle);
+            sprintf(filename, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\output\\spectru_filt_N%d_%ld.jpg", N_points, timestamp);
+            SaveBitmapToJPEGFile(imghandle, filename, JPEG_PROGRESSIVE, 100);
+            DiscardBitmap(imghandle);
+			
+			GetCtrlDisplayBitmap(panel, FRQ_PANEL_GRAPH_FILTER, 1, &imghandle);
+			sprintf(filename, "C:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\output\\semnal_filt_N%d_%ld.jpg", N_points, timestamp);
+			SaveBitmapToJPEGFile(imghandle, filename, JPEG_PROGRESSIVE, 100);
+			DiscardBitmap(imghandle);
+
+            g_frqOffset += N_points;
+
+        Cleanup:
+            if (xArray) free(xArray);
+            if (yFiltered) free(yFiltered);
+            if (autoSpectrum) free(autoSpectrum);
+            if (convertedSpectrum) free(convertedSpectrum);
+            if (autoSpecFilt) free(autoSpecFilt);
+            if (convSpecFilt) free(convSpecFilt);
+            break;
     }
     return 0;
 }
 
-int CVICALLBACK OnApply (int panel, int control, int event,
-						 void *callbackData, int eventData1, int eventData2)
-{
-	switch (event)
-	{
-		case EVENT_COMMIT:
-
-			break;
-	}
-	return 0;
-}
 
 
 

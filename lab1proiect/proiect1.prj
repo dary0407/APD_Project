@@ -147,7 +147,7 @@ Embed Project .UIRs = False
 Generate Map File = False
 Embed Timestamp = True
 Create Console Application = False
-Using LoadExternalModule = False
+Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
 Register ActiveX Server = False
 Numeric File Version = "1,0,0,0"
@@ -162,7 +162,7 @@ File Version = "1.0"
 File Version Ex = "%f1.%f2"
 Internal Name = "proiect1"
 Internal Name Ex = "%basename"
-Legal Copyright = "Copyright   2025"
+Legal Copyright = "Copyright   2026"
 Legal Copyright Ex = "Copyright  %company %Y"
 Legal Trademarks = ""
 Legal Trademarks Ex = ""
@@ -458,6 +458,10 @@ Project Symbols H File Is Rel = False
 Project Symbols H File = ""
 Project Symbols Obj File Is Rel = False
 Project Symbols Obj File = ""
+
+[Modules Forced Into Executable]
+Module 0001 Is Rel = False
+Module 0001 = "advanlys.lib"
 
 [ActiveX Server Options]
 Specification File Is Rel = False

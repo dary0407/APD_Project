@@ -1,7 +1,7 @@
-Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\Frequency.obj" ;
-Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\Proiect1.obj" ;
 Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2020\\bin\\msvc\\advanlys.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2020\\bin\\msvc\\advanlys.lib" ;
+Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\Frequency.obj" ;
+Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\Proiect1.obj" ;
 Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\advapi32.lib" ;
 NoCare "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\advapi32.lib" ;
 Depends "c:\\Users\\andre\\Documents\\GitHub\\APD_Project\\lab1proiect\\cvibuild.proiect1\\Debug\\proiect1.exe" : "C:\\Program Files (x86)\\Windows Kits\\8.1\\Lib\\winv6.3\\um\\x86\\bufferoverflowu.lib" ;

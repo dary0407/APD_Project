@@ -12,7 +12,7 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "proiect1.prj"
-Drag Bar Left = 160
+Drag Bar Left = 229
 Window Top = 52
 Window Left = 353
 Window Bottom = 554
@@ -32,7 +32,7 @@ Break At First Statement = False
 Sort Type = "File Name"
 Number of Opened Files = 6
 Window Confinement Region Enabled = True
-MainColumnWidth = 143
+MainColumnWidth = 212
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -50,38 +50,38 @@ Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.c"
 File Type = "CSource"
 Disk Date = 3849763573
 In Projects = "1,"
-Source Window State = "1,20,21,21,0,41,41,0,3,0,0,0,0,0,0,0,3,0,20,0,401,602,1,0,"
+Source Window State = "1,61,61,61,20,61,20,0,3,0,0,0,0,0,0,0,39,0,61,61,401,602,1,0,"
 Window Top = 64
 Window Left = 26
-Window Z-Order = 2
+Window Z-Order = 4
 
 [File 0002]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.uir"
 File Type = "User Interface Resource"
-Disk Date = 3849763673
+Disk Date = 3850377681
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Height = 401
 Window Width = 602
-Window Z-Order = 3
+Window Z-Order = 2
 
 [File 0003]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Proiect1.h"
 File Type = "Include"
-Disk Date = 3849763673
+Disk Date = 3850377681
 In Projects = "1,"
-Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,36,0,0,0,401,959,1,0,"
+Source Window State = "1,33,33,33,102,102,102,0,0,0,0,0,0,0,0,0,0,0,33,102,401,959,1,0,"
 Window Top = 219
 Window Left = 106
-Window Z-Order = 4
+Window Z-Order = 3
 
 [File 0004]
 Path = "/c/Users/andre/Documents/GitHub/APD_Project/lab1proiect/Frequency.c"
 File Type = "CSource"
-Disk Date = 3849763801
+Disk Date = 3850380817
 In Projects = "1,"
-Source Window State = "1,151,151,151,12,12,12,0,0,0,0,0,0,0,0,0,110,0,151,12,401,1064,1,0,"
+Source Window State = "1,81,81,81,11,11,11,0,0,0,0,0,0,0,0,0,56,0,81,11,401,1064,1,0,"
 Window Top = 64
 Window Left = 26
 Window Z-Order = 1
@@ -94,17 +94,17 @@ In Projects = "1,"
 Source Window State = "1,25,25,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,0,401,1064,1,0,"
 Window Top = 33
 Window Left = 10
-Window Z-Order = 5
+Window Z-Order = 6
 
 [File 0006]
 Path = "/c/Program Files (x86)/National Instruments/CVI2020/include/advanlys.h"
 File Type = "Include"
 Disk Date = 3679674592
 In Projects = ""
-Source Window State = "1,1468,1468,1468,0,18,0,0,3,0,0,0,0,0,0,0,1472,0,1468,18,281,602,1,0,"
+Source Window State = "1,1227,1227,1227,27,39,27,0,3,0,0,0,0,0,0,0,1181,0,1227,39,281,602,1,0,"
 Window Top = 126
 Window Left = 58
-Window Z-Order = 6
+Window Z-Order = 5
 
 [Tab Order]
 Tab 0001 = "/c/Program Files (x86)/National Instruments/CVI2020/include/advanlys.h"

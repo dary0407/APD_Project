@@ -27,7 +27,7 @@ BEGIN
             VALUE "FileDescription", "proiect1 (Debug x86)\0"
             VALUE "FileVersion", "1.0\0"
             VALUE "InternalName", "proiect1\0"
-            VALUE "LegalCopyright", "Copyright   2025\0"
+            VALUE "LegalCopyright", "Copyright   2026\0"
             VALUE "OriginalFilename", "proiect1.exe\0"
             VALUE "ProductName", " proiect1\0"
             VALUE "ProductVersion", "1.0\0"

@@ -1,15 +1,10 @@
 [OnFrequencyPanelCB]
 Class="Function"
 Prototype="int OnFrequencyPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:42:17"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:44:17"
 
 [OnTimerCB]
 Class="Function"
 Prototype="int OnTimerCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:70:17"
-
-[OnApply]
-Class="Function"
-Prototype="int OnApply(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:160:17"
+SourceLocation="c:\Users\andre\Documents\GitHub\APD_Project\lab1proiect\Frequency.c:72:17"
 

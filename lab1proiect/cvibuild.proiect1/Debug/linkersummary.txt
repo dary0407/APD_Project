@@ -1,7 +1,7 @@
+advanlys.lib
 Frequency.obj
 Proiect1.obj
 cvi.lib
-advanlys.lib
 cvistart.lib
 kernel32.lib
 user32.lib

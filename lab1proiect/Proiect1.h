@@ -20,12 +20,11 @@
 #define  FRQ_PANEL_FREQ_PEAK              5       /* control type: numeric, callback function: (none) */
 #define  FRQ_PANEL_POWER_PEAK             6       /* control type: numeric, callback function: (none) */
 #define  FRQ_PANEL_NPOINTS                7       /* control type: numeric, callback function: (none) */
-#define  FRQ_PANEL_COMMANDBUTTON_2        8       /* control type: command, callback function: OnApply */
-#define  FRQ_PANEL_FREQ_GRAPH             9       /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_GRAPH_INIT             10      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_GRAPH_FILTER           11      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_GRAPH_FREQ2            12      /* control type: graph, callback function: (none) */
-#define  FRQ_PANEL_TIMER                  13      /* control type: timer, callback function: OnTimerCB */
+#define  FRQ_PANEL_FREQ_GRAPH             8       /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_GRAPH_INIT             9       /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_GRAPH_FILTER           10      /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_GRAPH_FREQ2            11      /* control type: graph, callback function: (none) */
+#define  FRQ_PANEL_TIMER                  12      /* control type: timer, callback function: OnTimerCB */
 
 #define  MAIN_PANEL                       2       /* callback function: OnPanelCB */
 #define  MAIN_PANEL_IDC_SWITCH_PANEL      2       /* control type: binary, callback function: OnSwitchPanelCB */
@@ -71,7 +70,6 @@
 int  CVICALLBACK LoadWaveCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK NextBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnAlphaChangeCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK OnApply(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnApplyFilterCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnDerivativeToggleCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK OnDimensionChangeCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
